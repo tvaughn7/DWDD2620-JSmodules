@@ -1,14 +1,14 @@
-// Simplified navigation module with blue background and white text
+// Clean navigation module with CSS-based responsive styling
 export function navbar(links) {
     // Get reference to the nav element that already exists in HTML
     const navElement = document.querySelector('nav');
     
-    // Apply blue background to the nav element
-    navElement.className = 'bg-slate-900 py-4';
+    // Apply basic styling to the nav element
+    navElement.className = '';
     
     // Create unordered list for navigation items
     const ul = document.createElement('ul');
-    ul.className = 'flex justify-center items-center space-x-8';
+    ul.className = 'nav-list';
     
     // Get current page for wayfinding
     const currentPage = window.location.pathname.split('/').pop();
@@ -23,11 +23,11 @@ export function navbar(links) {
         linkAnchor.href = e.url;
         linkAnchor.textContent = e.name;
         
-        // White text with hover effect, highlight current page
+        // Apply CSS classes based on current page
         const isCurrentPage = currentPage === e.url;
         linkAnchor.className = isCurrentPage 
-            ? 'text-white font-bold py-2 px-4 border-b-2 border-white' 
-            : 'text-white py-2 px-4 hover:text-blue-200 transition-colors duration-200';
+            ? 'nav-link current' 
+            : 'nav-link';
         
         // Append anchor to list item
         li.appendChild(linkAnchor);
